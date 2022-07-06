@@ -2,22 +2,28 @@ import pandas as pd
 import tool
 import arquivo
 import buscas
+import adicionar
 
 criterios = [4,4,8,8]
+
+
 def main():
     iniciar = True
     tool.limparTela()
     listaDeCandidatos = arquivo.verificarCsv()
     print('#'*20, "RH Facil", '#'*20, "\n")
-    print("Menu:")
-    print("Candidatos[1]")
-    print("Buscar por Criterios[2]")
-    print("Buscar por Nome[3]")
-    print("Adicionar Candidato[4]")
-    print("Modificar Criterio[5]")
-    print("[sair]")
-    
+
     while iniciar:
+        
+        tool.limparTela()
+        print(f"Criterio base é {criterios}")
+        print("Menu:")
+        print("Candidatos[1]")
+        print("Buscar por Criterios[2]")
+        print("Buscar por Nome[3]")
+        print("Adicionar Candidato[4]")
+        print("Modificar Criterio[5]")
+        print("[sair]")
 
         entrada = input("Como posso ajudar? ")
         # lista de candidatos
@@ -36,14 +42,23 @@ def main():
             buscas.buscarNome(nome)
         
         elif(entrada == '4'):
-            pr
+            adicionar.coletarCandidato()
+        
         elif(entrada == '5'):
-            print("1")
+            modificarCriterio()
+
         elif(entrada.lower() == "sair"):
             print("1")
             iniciar = False
         else:
             print("Digite uma opção valida!")
 
+def modificarCriterio():
+
+    criterios[0] = int(input("Criterio entrevista ? "))
+    criterios[1] = int(input("Criterio teste teórico ? "))
+    criterios[2] = int(input("Criterio teste pratico ? "))
+    criterios[3] = int(input("Criterio avaliação deo Soft skills ? "))
+    print(criterios)
 
 main()
