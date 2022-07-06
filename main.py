@@ -12,11 +12,9 @@ def main():
     tool.limparTela()
     listaDeCandidatos = arquivo.verificarCsv()
     print('#'*20, "RH Facil", '#'*20, "\n")
-
+    
+    
     while iniciar:
-        
-        tool.limparTela()
-        print(f"Criterio base é {criterios}")
         print("Menu:")
         print("Candidatos[1]")
         print("Buscar por Criterios[2]")
@@ -53,12 +51,14 @@ def main():
         else:
             print("Digite uma opção valida!")
 
+
+
 def modificarCriterio():
 
-    criterios[0] = int(input("Criterio entrevista ? "))
+    criterios[0] = int(input("2 entrevista ? "))
     criterios[1] = int(input("Criterio teste teórico ? "))
     criterios[2] = int(input("Criterio teste pratico ? "))
     criterios[3] = int(input("Criterio avaliação deo Soft skills ? "))
-    print(criterios)
+
 
 main()

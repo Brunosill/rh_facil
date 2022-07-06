@@ -1,6 +1,9 @@
 from mailbox import NotEmptyError
+from pydoc import apropos
 import pandas as pd
 import arquivo
+import tool 
+
 
 def buscarNome(nome):
     listaCandidatos = arquivo.verificarCsv()
@@ -14,13 +17,21 @@ def buscarNome(nome):
         print('Pessoal não esta na lista!')
 
 def buscarCriterio(criterio):
-    listaCandidatos = arquivo.verificarCsv()
-    aprovados = (listaCandidatos['e'] >= criterio[0]) & (listaCandidatos['t'] >= criterio[1]) & (listaCandidatos['p'] >= criterio[2]) & (listaCandidatos['s'] >= criterio[3]) 
-    if(aprovados.shape[0] > 0):
+    continuar = True
+    while continuar:
+        listaCandidatos = arquivo.verificarCsv()
+        aprovados = (listaCandidatos['e'] >= criterio[0]) & (listaCandidatos['t'] >= criterio[1]) & (listaCandidatos['p'] >= criterio[2]) & (listaCandidatos['s'] >= criterio[3]) 
         listaAprovados = listaCandidatos[aprovados]
-        for nome in listaAprovados['Nome']:
-            print(nome)
-    else:
-        print('Ninguem passou pelo criteiro :(')
+        if(listaAprovados.shape[0] >= 1):
+            for x in range(listaAprovados.shape[0]):
+                aprovado = listaAprovados.iloc[x]
+                print(f"Candidato {aprovado['Nome']}: e{aprovado['e']}_t{aprovado['t']}_p{aprovado['p']}_s{aprovado['s']}")
+        
+        else:
+            print('Ninguem passou pelo criteiro :(')
+        volta = input("[s] Voltar ? ")
+        if volta == "s":
+            continuar = False
 
-buscarCriterio([10,1,1,1])
+    tool.limparTela()
+
