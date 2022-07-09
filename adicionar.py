@@ -14,12 +14,18 @@ def adicionarCandidato(candidato):
 
 
 def coletarCandidato():
+    continuar = True
+    while continuar:
+        novoCandidato = []
+        novoCandidato.append(input("Nome do candidato ? "))
+        novoCandidato.append(int(input("Nota da entrevista ? ")))
+        novoCandidato.append(int(input("Nota do teste teórico ? ")))
+        novoCandidato.append(int(input("Nota do teste pratico ? ")))
+        novoCandidato.append(int(input("Nota da avaliação deo Soft skills ? ")))
+        print(novoCandidato)
+        adicionarCandidato(novoCandidato)
+
+        voltar = input("[s]Voltar ?")
+        if voltar == 's':
+            continuar = False
     tool.limparTela()
-    novoCandidato = []
-    novoCandidato.append(input("Nome do candidato ? "))
-    novoCandidato.append(int(input("Nota da entrevista ? ")))
-    novoCandidato.append(int(input("Nota do teste teórico ? ")))
-    novoCandidato.append(int(input("Nota do teste pratico ? ")))
-    novoCandidato.append(int(input("Nota da avaliação deo Soft skills ? ")))
-    print(novoCandidato)
-    adicionarCandidato(novoCandidato)

@@ -18,4 +18,4 @@ def verificarCsv():
         return pd.read_csv('candidatos.csv', sep=';')
 
 def salvarAqrquivo(dados):
-    dados.to_csv('candidato.csv', sep=';', index= False)
+    dados.to_csv('candidatos.csv', sep=';', index= False)

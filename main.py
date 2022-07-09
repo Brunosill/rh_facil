@@ -54,11 +54,14 @@ def main():
 
 
 def modificarCriterio():
+    continuar = True
+    while continuar:
+        criterios[0] = int(input("Criterio da entrevista ? "))
+        criterios[1] = int(input("Criterio teste teórico ? "))
+        criterios[2] = int(input("Criterio teste pratico ? "))
+        criterios[3] = int(input("Criterio avaliação deo Soft skills ? "))
 
-    criterios[0] = int(input("2 entrevista ? "))
-    criterios[1] = int(input("Criterio teste teórico ? "))
-    criterios[2] = int(input("Criterio teste pratico ? "))
-    criterios[3] = int(input("Criterio avaliação deo Soft skills ? "))
-
-
+        voltar = input("[s] Voltar ?")
+        if voltar == 's':
+            continuar = False
 main()
